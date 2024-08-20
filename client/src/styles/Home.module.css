@@ -4,15 +4,25 @@
  * 		- main base class 
  * 		*/
 
+
+:root {
+  --color1: #111720;
+  --color2: #1A2131;
+  --color3: #ecf0f1;
+  --color4: #2c3e50;
+  --containerWidth: 80%;
+  --borderWidth: 2px;
+  --textSize1: 18px;
+  --textSize2: 24px;
+  --brdRad1: 10px;
+  --fontFamily1: 'Montserrat', sans-serif;
+}
+
 .container {
 	display: flex;
 	justify-content: center;
 	margin: 4em 0;
 }
-
-
-
-
 
 
 .base {
@@ -116,7 +126,7 @@
 	display: flex;
 	flex-direction: row;
 	min-height: 70vh;
-	max-height: 90vh;
+	max-height: 95vh;
 	overflow: scroll;
 	/* border-style: solid; */ 
 	/* border-color: var(--color1); */ 
@@ -134,7 +144,7 @@
 } 
 
 .headlineBox1 h2, h3, h4 {
-	padding-left: 3rem;
+	padding-left: 5rem;
 	color: var(--color3);
 }
 
@@ -163,6 +173,8 @@
 	border-radius: var(--brdRad1);
 	font-family: var(--fontFamily1);
 	transition: border-width 0.5s ease, color 0.5s ease, border-color 0.5s ease; 
+	background-color: var(--color3);
+	color: var(--color1);
 }
 
 .headlineButton:hover {
@@ -183,7 +195,7 @@
 .features {
 	display: flex;
 	flex-direction: row;
-	min-height: 60vh;
+	min-height: 62vh;
 	width: var(--containerWidth);
 	background-color: var(--color2); 
 	border-radius: var(--brdRad1) var(--brdRad1) 0 0;
@@ -201,25 +213,30 @@
 }
 
 .featureText {
-	flex: 3;
-	max-height: 10em;
+	flex: 4;
+	max-height: 12em;
 	background-color: white;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	padding: 3em;
+	padding-top: 2em;
 	text-align: center;
+	overflow: scroll;
 }
 
 .featureText h5 { 
 	padding-top: 0;
 	margin-top: 0;
 	font-size: 1.4em;
+	color: var(--color1);
 } 
 
 .featureText p {
 	padding-top: 0;
 	margin-top: 0;
+	font-size: 18px;
+	color: var(--color1);
 }
 
 .featureEmojis {
@@ -227,7 +244,7 @@
 }
 
 .featurePicture {
-	flex: 4;
+	flex: 5;
 	color: white;
 	display: flex;
 	align-items: center;

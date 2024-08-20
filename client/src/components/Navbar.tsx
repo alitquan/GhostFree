@@ -9,7 +9,7 @@ export default function Navbar () {
 
 			<div className={` ${styles.navbarName} `} > 
 				<p> 
-					NoGhost	
+					NoGhostZone
 				</p> 
 			</div> 
 
