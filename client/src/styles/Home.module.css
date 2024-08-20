@@ -1,0 +1,275 @@
+/* App.css holds 
+ * 		- color and size constants
+ * 		- main container class
+ * 		- main base class 
+ * 		*/
+
+.container {
+	display: flex;
+	justify-content: center;
+	margin: 4em 0;
+}
+
+
+
+
+
+
+.base {
+	display: flex; 
+	flex-direction: column;
+	justify-content: flex-start; 
+	align-items: center; 
+	height: 208vh;
+	width: 100vw; 
+	background-color: var(--color1);	
+	margin: 0;
+} 
+
+
+
+.navbar {
+	display: flex; 
+	min-height: 8vh;
+	max-height: 10%;
+	margin-bottom: 0;
+	width: var(--containerWidth);
+	flex-direction: row;
+	background-color: var(--color3); 
+	border-radius: var(--brdRad1) var(--brdRad1) 0 0;
+	margin-bottom: 0;
+}
+
+
+.navbarName {
+	/* border-left: var(--borderWidth) solid var(--color1); */ 
+	flex-basis: 25%;
+	display: flex; 
+	align-items: center;
+	justify-content: center;	
+	padding-left: 2em;
+	font-size: var(--textSize2);
+}
+
+.navbarName p {
+	margin-right: 5em;
+	font-weight: 900;
+	color: var(--color1);
+}
+
+.navbarSpace {
+	/* border-left: var(--borderWidth) solid var(--color1); */ 
+	flex-basis: 5%;
+}
+
+.navbarLogin{
+	/* border-left: var(--borderWidth) solid var(--color1); */ 
+	flex-basis: 30%;
+	display: flex;
+ 	padding: 15px;
+	justify-content: space-around;
+}
+
+
+.navbarLogin button{
+	color: var(--color4);
+	background-color: var(--color3);
+	border: none;
+	min-width: 8em;
+	font-size: var(--textSize1);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	transition: border-width 0.5s ease, color 0.5s ease, border-color 0.5s ease; 
+}
+
+.navbarLogin button:hover {
+	border-radius: 10px;
+	border: solid;
+	border-width: var(--borderWidth);  
+	background-color: var(--color1);
+	color: var(--color3);
+	cursor: pointer;
+}
+
+.navbarContents {
+	/* border-left: var(--borderWidth) solid var(--color1); */ 
+	flex-basis: 40%;
+	display: flex;
+	justify-content:space-between; 
+	padding: 20px;
+} 
+
+.navbarContents a {
+	text-decoration: none;
+	color: inherit;        
+	font-size: var(--textSize1);
+}
+
+
+
+/* headline stuff */
+.headline {
+	margin-top: 0;
+	height: 20%;
+	background-color: var(--color2);
+	width: var(--containerWidth);
+	display: flex;
+	flex-direction: row;
+	min-height: 70vh;
+	max-height: 90vh;
+	overflow: scroll;
+	/* border-style: solid; */ 
+	/* border-color: var(--color1); */ 
+	border-radius: 0 0 var(--brdRad1) var(--brdRad1);
+
+	/* create max height and width based on screen size */
+
+} 
+
+.headlineBox1 {
+	flex-basis: 60%;
+	display: flex; 
+	flex-direction: column;
+	overflow: scroll;
+} 
+
+.headlineBox1 h2, h3, h4 {
+	padding-left: 3rem;
+	color: var(--color3);
+}
+
+
+.headlineBox1 h2 {
+	font-size: 55px;
+}
+
+.headlineBox1 h3 { 
+	font-size: 35px;
+}
+
+
+.headlineBox1 h4 { 
+	font-size: 30px;
+}
+
+.headlineBox1 p {
+	font-size: var(--textSize1);
+} 
+
+.headlineButton {
+	margin-top: 1em;
+	width: 22%;
+	margin: 0 auto;
+	border-radius: var(--brdRad1);
+	font-family: var(--fontFamily1);
+	transition: border-width 0.5s ease, color 0.5s ease, border-color 0.5s ease; 
+}
+
+.headlineButton:hover {
+	border-radius: 10px;
+	border: solid;
+	border-width: var(--borderWidth);  
+	background-color: var(--color1);
+	color: var(--color3);
+	cursor: pointer; 
+}
+
+.headlineBox2 {
+	flex-basis: 40%;
+	border-left: var(--borderWidth) solid var(--color1);
+	overflow: scroll;
+} 
+
+.features {
+	display: flex;
+	flex-direction: row;
+	min-height: 60vh;
+	width: var(--containerWidth);
+	background-color: var(--color2); 
+	border-radius: var(--brdRad1) var(--brdRad1) 0 0;
+}
+
+.featuresSquare { 
+	display: flex; 
+	justify-content: center; 
+	align-content: center; 
+	flex-direction: column;
+	flex-basis: 33%;
+	border-width: var(--borderWidth);  
+	border-style: solid; 
+	border-color: var(--color1); 
+}
+
+.featureText {
+	flex: 3;
+	max-height: 10em;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 3em;
+	text-align: center;
+}
+
+.featureText h5 { 
+	padding-top: 0;
+	margin-top: 0;
+	font-size: 1.4em;
+} 
+
+.featureText p {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.featureEmojis {
+	font-size: 30px;
+}
+
+.featurePicture {
+	flex: 4;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.centeredImageFeature{
+	max-width: 50%; 
+	height: auto; 
+}
+
+.footer { 
+	margin-top: 3em; 
+	width: 80%;
+	min-height: 5vh;
+	border-radius: var(--brdRad1);
+	display: flex; 
+	flex-direction: row;
+	overflow: hidden;
+}
+
+.footerPortionEnd {
+	background-color: var(--color3);
+	box-sizing: border-box;
+	width: 30%;
+}
+
+.footerPortionMiddle {
+	background-color: var(--color3);
+	flex: 2;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+}
+
+.centeredImage {
+	max-width: 20%; 
+	height: auto; 
+}
+
+
+
+
+
+
