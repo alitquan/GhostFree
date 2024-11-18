@@ -272,6 +272,10 @@
 	width: 30%;
 }
 
+.footerPortionEnd p {
+	color: var(--color2); 
+} 
+
 .footerPortionMiddle {
 	background-color: var(--color3);
 	flex: 2;

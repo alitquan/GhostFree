@@ -4,6 +4,7 @@ import styles from '@styles/Home.module.css'
 import Navbar from '@components/Navbar.tsx'
 import Headline from '@components/Headline.tsx'
 import Features from '@components/Features.tsx'
+import Footer from '@components/Footer.tsx' 
 
 export default function Home () {
 	return (
@@ -11,6 +12,7 @@ export default function Home () {
   			<Navbar />	
 			<Headline />
 			<Features />
+			<Footer /> 
 		</div> 
 
 	)
