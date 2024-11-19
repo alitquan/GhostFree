@@ -290,7 +290,79 @@
 }
 
 
+.containerLogin{ 
+	background: linear-gradient(to top, 
+		#dc644c,
+		#c96e54,
+		#934a5b,
+		#5d3b56,
+		#352b44,
+		#121121
+	);
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: blue;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+}
+
+.signin {
+	background-color: var(--color2);
+	height: 57vh;
+	width: 50vh;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column; 
+} 
 
 
+.signin h3 {
+	font-size: 2.3rem;
+	padding: 0;
+	margin: 0 auto;
+	color: white;
+	padding-top: 1em;
+	margin-bottom: var(--siMargin1); 
+} 
+
+.signInField {
+	font-size: 3vh;
+	margin: 0 15%;
+	margin-bottom: var(--siMargin2);
+}
+
+
+.signInField p {
+	margin-bottom: 10px;
+	color: white;
+}
+
+.signInField input {
+	width: 98%;
+	height: 3vh;
+	border-radius: 4px;
+	padding: 5px; 
+	font-size: 1.75vh;
+}
+
+
+.loginButton {
+	margin: 0 auto;
+	margin-top: 5vh;
+	height: 6vh;
+	width:  15vh;
+	font-size: 2.3vh;
+	border-radius: 10px;
+	color: var(--color5);
+}
+
+.loginError {
+	color: blue;
+	padding-left: 10%;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
 
 
