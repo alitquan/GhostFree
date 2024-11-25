@@ -293,11 +293,11 @@
 .containerLogin{ 
 	background: linear-gradient(to top, 
 		#dc644c,
-		#c96e54,
 		#934a5b,
 		#5d3b56,
 		#352b44,
-		#121121
+		#121121,
+		black
 	);
 	margin: 0;
 	width: 100vw;
