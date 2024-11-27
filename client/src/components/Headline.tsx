@@ -23,7 +23,7 @@ export default function Headline () {
 
 				<h3
 					style={{ 
-						marginTop: '0em',
+						marginTop: '0em'
 					}}
 				> No More Superficial Friendships—Build Real, Lasting Bonds
 				</h3> 
