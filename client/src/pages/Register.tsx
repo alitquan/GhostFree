@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import styles from  '@styles/Home.module.css';
+import config from '@utils/config.js';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -11,7 +13,16 @@ const Register = () => {
 	const [error, setError] = useState('');
 
 	const attemptRegister = async() => {
+
 		try {
+			const URI = config.API_BASE_URL + "/register";
+			console.log(URI);
+			const response = await axios.post(URI, {
+				username,
+				password,
+			});
+
+			console.log(response);	
 			console.log("attemptRegister --");
 		}
 		catch (err) {
