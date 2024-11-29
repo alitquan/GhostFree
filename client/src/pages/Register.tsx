@@ -17,16 +17,25 @@ const Register = () => {
 		try {
 			const URI = config.API_BASE_URL + "/register";
 			console.log(URI);
+
+			if (!username || !password || !email) { 
+				setError("Please fill out all fields to register");
+				return; 
+			}
+
 			const response = await axios.post(URI, {
 				username,
 				password,
+				email
 			});
 
 			console.log(response);	
 			console.log("attemptRegister --");
+			setError('');
 		}
 		catch (err) {
-			console.log(err);
+			console.log(err.response);
+			setError(err.response?.data || 'Registration failed');
 		}
 	}
 
@@ -52,12 +61,12 @@ const Register = () => {
 
 					<div className={styles.registerField}> 
 						<p> Password </p>  
-						<input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} />
+						<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
 					</div>	
 
 					<div className={styles.registerField}> 
 						<p> Confirm Password </p>  
-						<input type="text" value={cpassword} onChange={(e)=>setCpassword(e.target.value)} />
+						<input type="password" value={cpassword} onChange={(e)=>setCpassword(e.target.value)} />
 					</div>
 
 
@@ -66,6 +75,9 @@ const Register = () => {
 						<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} />
 					</div>
 
+					<div> 
+						{error && <p className={styles.authError}>{error}</p>}
+					</div>
 
 					<div className={styles.registerButton}> 
 						<button className={styles.loginButton} onClick={attemptRegister}> 

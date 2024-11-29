@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import styles from  '@styles/Home.module.css';
 import config from '@utils/config.js';
+import axios from 'axios';
 
 
 function Login  ({onLogin}) {
@@ -11,7 +12,9 @@ function Login  ({onLogin}) {
 
 	const attemptLogin = async () => {
 		try { 
-			const response = await axios.post('${config.API_BASE_URL}/login', {
+			const URI = config.API_BASE_URL + "/login";
+
+			const response = await axios.post(URI , {
 				username,
 				password,
 			});
@@ -43,7 +46,7 @@ function Login  ({onLogin}) {
 
 
 				<div> 
-					{error && <p className={styles.loginError}>{error}</p>}
+					{error && <p className={styles.authError}>{error}</p>}
 				</div>
 
 

@@ -367,7 +367,7 @@
 	color: var(--color5);
 }
 
-.loginError {
+.authError {
 	color: blue;
 	padding-left: 10%;
 	padding-bottom: 0;

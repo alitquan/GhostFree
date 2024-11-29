@@ -28,18 +28,15 @@ function checkRegistration (name, password, email) {
 
 } 
 
-
-
 app.post('/register', async (req, res) => {
 	console.log(req);
 
 
 	try {
-		const { username, password } = req.body;
+		const { username, password, email } = req.body;
 		const hashedPassword = await bcrypt.hash(password, 10);
-		const email = "test@gmail.com";
 		let user= new userModel({ username, password, email});
-		user.save();
+		await user.save();
 		res.status(201).send('User registered');
 	} 
 
@@ -49,6 +46,13 @@ app.post('/register', async (req, res) => {
 	}
 });
 
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port {$PORT}`);
