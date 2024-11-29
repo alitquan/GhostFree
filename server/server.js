@@ -13,6 +13,9 @@ app.use(express.json());
 
 
 
+// +----------+
+// | Mongoose | 
+// +----------+
 mongoose.connect('mongodb://127.0.0.1:27017/mongoose_test', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -23,11 +26,19 @@ mongoose.connection.on('disconnected', () => console.log('Disconnected from Mong
 mongoose.connection.on('error', (error) => console.error('MongoDB connection error:', error));
 
 
+
+// +-----------+
+// | Auxiliary |
+// +-----------+
 function checkRegistration (name, password, email) {
 	return 1;
-
 } 
 
+
+
+// +--------+
+// | Routes |
+// +--------+
 app.post('/register', async (req, res) => {
 	console.log(req);
 
@@ -36,16 +47,34 @@ app.post('/register', async (req, res) => {
 		const { username, password, email } = req.body;
 		const hashedPassword = await bcrypt.hash(password, 10);
 		let user= new userModel({ username, password, email});
+
 		await user.save();
 		res.status(201).send('User registered');
 	} 
 
 	catch (error) {
 		console.log (error);
+		if (error.name === 'MongoServerError') {
+			
+			// viewable in server console-- MongoServerError E11000 
+			if (error.code === 11000) {
+
+				// Handle duplicate key error
+				res.status(409).send('Username or email address belongs to an existing account');
+			}
+
+		}
+		console.log 
+
 	    res.status(500).send('Server error');
 	}
 });
 
+
+
+// +-----------------------+
+// | Process Configuration | 
+// +-----------------------+
 process.on('uncaughtException', (error) => {
   console.error('Uncaught Exception:', error);
 });

@@ -44,11 +44,9 @@ function Login  ({onLogin}) {
 					<input type="password"  value={password} onChange={(e)=>setPassword(e.target.value)} />
 				</div>
 
-
-				<div> 
-					{error && <p className={styles.authError}>{error}</p>}
+				<div className={styles.authError}> 
+					{error && <p> {error}</p>}
 				</div>
-
 
 				<button className={styles.loginButton} onClick={attemptLogin}> Sign In </button> 
 

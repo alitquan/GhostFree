@@ -3,7 +3,13 @@ const { Schema, model } = mongoose;
 
 const userSchema = new mongoose.Schema( 
 	{
-		username: { type: String, required: true, minLength: 3, maxLength: 30 },
+		username: { 
+			type: String, 
+			required: true, 
+			unique: true,
+			minLength: 3, 
+			maxLength: 30 
+		},
 		password: { 
 			type: String, 
 			required: true,

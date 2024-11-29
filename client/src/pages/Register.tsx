@@ -18,10 +18,26 @@ const Register = () => {
 			const URI = config.API_BASE_URL + "/register";
 			console.log(URI);
 
-			if (!username || !password || !email) { 
-				setError("Please fill out all fields to register");
+			if (!username || !password || !email || !cpassword) { 
+				setError("Please fill out all fields to register.");
 				return; 
 			}
+
+			if (password != cpassword) {
+				setError("Passwords do not match.");
+				return;
+			} 
+
+			if (username.length < 8) {
+				setError("Username must be at least 3 characters long");
+				return;
+			} 
+
+
+			if (password.length < 8) {
+				setError("Password must be at least 8 characters long");
+				return; 
+			} 
 
 			const response = await axios.post(URI, {
 				username,
@@ -75,8 +91,8 @@ const Register = () => {
 						<input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} />
 					</div>
 
-					<div> 
-						{error && <p className={styles.authError}>{error}</p>}
+					<div className={styles.authError}> 
+						{error && <p> {error}</p>}
 					</div>
 
 					<div className={styles.registerButton}> 
