@@ -4,9 +4,12 @@ import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import userModel from './Model/User.js';
+import config from './config.js';
 
 const app = express();
 const PORT = 5000;
+const MONGODB_URI = config.MONGODB_URI;
+const JWT_SECRET = config.JWT_SECRET;
 
 app.use(cors());
 app.use(express.json());
@@ -16,7 +19,7 @@ app.use(express.json());
 // +----------+
 // | Mongoose | 
 // +----------+
-mongoose.connect('mongodb://127.0.0.1:27017/mongoose_test', {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -46,14 +49,23 @@ app.post('/register', async (req, res) => {
 	try {
 		const { username, password, email } = req.body;
 		const hashedPassword = await bcrypt.hash(password, 10);
-		let user= new userModel({ username, password, email});
-
+		let user= new userModel({ username, 
+								  password: hashedPassword, 
+							      email});
 		await user.save();
-		res.status(201).send('User registered');
+		const _token = jwt.sign( {id:user._id},
+								JWT_SECRET,
+								{expiresIn: '1h'
+							   });
+								  
+		res.status(201).json( {
+							   token: _token,
+							   message: 'Successful registration'
+							  });
 	} 
 
 	catch (error) {
-		console.log (error);
+		console.log (error)
 		if (error.name === 'MongoServerError') {
 			
 			// viewable in server console-- MongoServerError E11000 
@@ -71,6 +83,29 @@ app.post('/register', async (req, res) => {
 });
 
 
+app.post('/login', async (req, res) => {
+	try {
+		const {username, password} = req.body; 
+		console.log(`Username: ${username}, Passowrd: ${password}`);
+		const user = await userModel.findOne({ username });
+		if (!user) {
+			res.status(400).send('No user with that name');
+		}
+		const storedHashedPassword = user.password;
+		const match = await bcrypt.compare(password, storedHashedPassword);
+		if (!match) {
+			res.status(400).send('Password does not match');
+		} 
+		else { 
+			res.status(201).send('Login info passed');
+		}
+	} 
+	
+	catch (error) { 
+		console.log(error);
+	} 
+});
+
 
 // +-----------------------+
 // | Process Configuration | 
@@ -84,5 +119,5 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on port {$PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });

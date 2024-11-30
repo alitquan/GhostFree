@@ -319,7 +319,7 @@
 
 .signin {
 	background-color: var(--color2);
-	height: 57vh;
+	height: 58vh;
 	width: 50vh;
 	border-radius: 10px;
 	display: flex;
@@ -328,23 +328,21 @@
 
 
 .signin h3 {
-	font-size: 2.3rem;
+	font-size: 4vh;
 	padding: 0;
 	margin: 0 auto;
 	color: white;
-	padding-top: 1em;
-	margin-bottom: var(--siMargin1); 
+	padding-top: 3vh;
+	margin-bottom: 1vh;
 } 
 
 .signInField {
-	font-size: 3vh;
+	font-size: 2.7vh;
 	margin: 0 15%;
-	margin-bottom: var(--siMargin2);
 }
 
 
 .signInField p {
-	margin-bottom: 10px;
 	color: white;
 }
 
@@ -352,7 +350,7 @@
 	width: 98%;
 	height: 3vh;
 	border-radius: 4px;
-	padding: 5px; 
+	padding: 0.5vh; 
 	font-size: 1.75vh;
 }
 
@@ -373,6 +371,7 @@
 	margin: 0 auto;
 	margin-top: 2vh;
 }
+
 
 .authError p {
 	font-size: 1.8vh;

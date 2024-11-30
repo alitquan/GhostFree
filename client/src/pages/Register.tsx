@@ -28,8 +28,9 @@ const Register = () => {
 				return;
 			} 
 
-			if (username.length < 8) {
+			if (username.length < 3) {
 				setError("Username must be at least 3 characters long");
+				console.log(username);
 				return;
 			} 
 
@@ -45,7 +46,9 @@ const Register = () => {
 				email
 			});
 
+			const token = response.data.token;
 			console.log(response);	
+			console.log(`Token: ${token}`); 
 			console.log("attemptRegister --");
 			setError('');
 		}
