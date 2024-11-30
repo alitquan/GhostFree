@@ -1,11 +1,32 @@
-
+import { useState } from 'react'
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from '@pages/Home.tsx';
 import './App.css';
+import Home from '@pages/Home.tsx';
+import Login from '@pages/Login.tsx'; 
+import Register from '@pages/Register.tsx'; 
+import jwt from 'jsonwebtoken';
 
 function App() {
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+	  console.log("handleLogin() -- called");
+	  setIsLoggedIn(true);
+  };
+
+  window.onload = () => {
+	const token = localStorage.getItem('token');
+	if (token) { 
+		console.log("Token output: "); 
+		const userInfo = jwtDecode(token);
+		console.log(userInfo);
+		handleLogin();
+	}
+  }
+
   return (
     <HelmetProvider>
       <Router>
@@ -17,6 +38,8 @@ function App() {
         </Helmet>
         <Routes>
           <Route path="/" element={<Home />} />
+		  <Route path="/login" element={<Login />} />  
+		  <Route path="/register" element={<Register />} /> 
         </Routes>
       </Router>
     </HelmetProvider>

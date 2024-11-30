@@ -80,9 +80,13 @@
 	justify-content: space-around;
 }
 
+.navbarLogin a {
+	color: var(--color1);
+}
+
 
 .navbarLogin button{
-	color: var(--color4);
+	color: var(--color1);
 	background-color: var(--color3);
 	border: none;
 	min-width: 8em;
@@ -100,6 +104,11 @@
 	color: var(--color3);
 	cursor: pointer;
 }
+
+.navbarLogin button:hover a {
+	color: var(--color3);
+} 
+
 
 .navbarContents {
 	/* border-left: var(--borderWidth) solid var(--color1); */ 
@@ -272,6 +281,10 @@
 	width: 30%;
 }
 
+.footerPortionEnd p {
+	color: var(--color2); 
+} 
+
 .footerPortionMiddle {
 	background-color: var(--color3);
 	flex: 2;
@@ -284,6 +297,164 @@
 	max-width: 20%; 
 	height: auto; 
 }
+
+
+.containerLogin{ 
+	background: linear-gradient(to top, 
+		#dc644c,
+		#934a5b,
+		#5d3b56,
+		#352b44,
+		#121121,
+		black
+	);
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: blue;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+}
+
+.signin {
+	background-color: var(--color2);
+	height: 58vh;
+	width: 50vh;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column; 
+} 
+
+
+.signin h3 {
+	font-size: 4vh;
+	padding: 0;
+	margin: 0 auto;
+	color: white;
+	padding-top: 3vh;
+	margin-bottom: 1vh;
+} 
+
+.signInField {
+	font-size: 2.7vh;
+	margin: 0 15%;
+}
+
+
+.signInField p {
+	color: white;
+}
+
+.signInField input {
+	width: 98%;
+	height: 3vh;
+	border-radius: 4px;
+	padding: 0.5vh; 
+	font-size: 1.75vh;
+}
+
+
+.loginButton {
+	margin: 0 auto;
+	margin-top: 5vh;
+	height: 6vh;
+	width:  15vh;
+	font-size: 2.3vh;
+	border-radius: 10px;
+	color: var(--color5);
+}
+
+.authError {
+	height: 3vh;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 2vh;
+}
+
+
+.authError p {
+	font-size: 1.8vh;
+	color: red;
+	padding-left: 10%;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.register{
+	background-color: var(--color2);
+	height: 90vh;
+	width: 40vw;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column; 
+}
+
+.registerHeading { 
+	height: 5vh;
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 3vh;
+} 
+
+.registerHeading h2, .registerHeading h3 { 
+	padding: 0;
+	margin: 0;
+} 
+
+.registerHeading h2 {
+	font-size: 4.5vh;
+	margin-top: 4vh;
+	margin-bottom: 1vh;
+} 
+
+
+.registerHeading h3 {
+	font-size: 2.2vh;
+} 
+
+.registerField {
+	width: 70%;
+	height: 6vh;
+	margin: 4vh 15%;
+	font-size: 2.7vh;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	/* background-color: red; */
+}
+
+.registerField p {
+	font-size: 2.2vh;
+	color: white;
+}
+
+.registerField input {
+	width: 100%;
+	border-radius: 4px;
+	padding: 5px; 
+	font-size: 1.75vh;
+	margin-bottom: 2vh;
+}
+
+.registerButton {
+	margin: auto auto;
+	height: 8vh;
+	width: 10vw;
+}
+
+.registerButton button {
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	font-size: 2.3vh;
+	border-radius: 10px;
+	color: var(--color5);
+}
+
+
 
 
 
