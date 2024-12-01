@@ -13,11 +13,11 @@ export default function Home () {
 		const token = sessionStorage.getItem('authToken');
 		if (token) { 
 			try {
-				console.log("Token output:"); 
+				console.log(`Token output: ${token}`); 
 				const userInfo = jwtDecode(token); // Decode the token
 				console.log(`User Info:`, userInfo);
 			} catch (error) {
-				console.error("Failed to decode token:", error);
+				console.log("Home() -- no token detected");
 			}
 		}
 		else {

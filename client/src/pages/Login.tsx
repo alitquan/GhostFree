@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from  '@styles/Home.module.css';
 import config from '@utils/config.js';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login  ({onLogin}) {
@@ -9,6 +10,7 @@ function Login  ({onLogin}) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const navigate = useNavigate(); 
 
 	const attemptLogin = async () => {
 		try { 
@@ -18,9 +20,12 @@ function Login  ({onLogin}) {
 				username,
 				password,
 			});
+			console.log("attemptLogin() -- response received :");
+			console.log(response);
 			sessionStorage.setItem('authToken', response.data.token);
 			onLogin(response.data.token);
 			console.log("attemptLogin() -- completed");
+			navigate("/");
 		} catch (err) {
 			console.log(err);
 			setError(err.response?.data || 'Login failed'); 
