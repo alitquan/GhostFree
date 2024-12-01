@@ -6,26 +6,20 @@ import './App.css';
 import Home from '@pages/Home.tsx';
 import Login from '@pages/Login.tsx'; 
 import Register from '@pages/Register.tsx'; 
+import Transition from '@pages/Transition.tsx';
 import jwt from 'jsonwebtoken';
+import { jwtDecode } from 'jwt-decode';
 
 function App() {
   
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [login, setLogin] = useState<string | null>('');
 
-  const handleLogin = () => {
+  const handleLogin = (userID:string) => {
 	  console.log("handleLogin() -- called");
-	  setIsLoggedIn(true);
+	  console.log(`handleLogin() -- ${userID}`);
+	  setLogin(userID);
   };
 
-  window.onload = () => {
-	const token = localStorage.getItem('token');
-	if (token) { 
-		console.log("Token output: "); 
-		const userInfo = jwtDecode(token);
-		console.log(userInfo);
-		handleLogin();
-	}
-  }
 
   return (
     <HelmetProvider>
@@ -37,8 +31,9 @@ function App() {
 		  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' />
         </Helmet>
         <Routes>
-          <Route path="/" element={<Home />} />
-		  <Route path="/login" element={<Login />} />  
+
+		  <Route path="/" element={login ? <Transition/> : <Home/>} />
+		  <Route path="/login" element={<Login onLogin={handleLogin} />} />  
 		  <Route path="/register" element={<Register />} /> 
         </Routes>
       </Router>

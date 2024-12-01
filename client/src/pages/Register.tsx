@@ -2,10 +2,11 @@ import React, { useState, useContext } from "react";
 import styles from  '@styles/Home.module.css';
 import config from '@utils/config.js';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-
+	const navigate = useNavigate();
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [cpassword, setCpassword] = useState('');
@@ -51,6 +52,10 @@ const Register = () => {
 			console.log(`Token: ${token}`); 
 			console.log("attemptRegister --");
 			setError('');
+			sessionStorage.setItem('authToken', token);
+  
+			// Redirect to homepage
+	        navigate('/'); 
 		}
 		catch (err) {
 			console.log(err.response);

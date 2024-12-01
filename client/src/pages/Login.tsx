@@ -18,8 +18,8 @@ function Login  ({onLogin}) {
 				username,
 				password,
 			});
-			localStorage.setItem('token', response.data.token);
-			onLogin();
+			sessionStorage.setItem('authToken', response.data.token);
+			onLogin(response.data.token);
 			console.log("attemptLogin() -- completed");
 		} catch (err) {
 			console.log(err);
