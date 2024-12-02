@@ -4,7 +4,7 @@ import config from '@utils/config.js';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Register = () => {
+const Register = ( {onRegister} ) => {
 
 	const navigate = useNavigate();
 	const [username, setUsername] = useState('');
@@ -53,6 +53,7 @@ const Register = () => {
 			console.log("attemptRegister --");
 			setError('');
 			sessionStorage.setItem('authToken', token);
+			onRegister(token);
   
 			// Redirect to homepage
 	        navigate('/'); 

@@ -18,11 +18,15 @@ function Transition() {
 
   const navigate = useNavigate();
 
+  const goToWaiting = () => {
+		navigate('/waiting'); 
+  };
 
   // Handle showing and hiding questions
   useEffect(() => {
     if (completed) {
       uploadAndTransition();
+	  goToWaiting();
     }
   }, [completed]);
 

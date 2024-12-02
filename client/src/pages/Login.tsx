@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function Login  ({onLogin}) {
+function Login  ( {onLogin} ) {
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');

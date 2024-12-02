@@ -97,7 +97,16 @@ app.post('/login', async (req, res) => {
 			res.status(400).send('Password does not match');
 		} 
 		else { 
-			res.status(201).send('Login info passed');
+			const _token = jwt.sign( {id:user._id},
+								JWT_SECRET,
+								{expiresIn: '1h'
+							});
+			
+			console.log(`/login -- token: ${_token}`);
+			res.status(201).json( {
+							   token: _token,
+							   message: 'Successful registration'
+			});
 		}
 	} 
 	
