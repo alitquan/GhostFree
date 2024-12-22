@@ -8,6 +8,7 @@ import Login from '@pages/Login.tsx';
 import Register from '@pages/Register.tsx'; 
 import Transition from '@pages/Transition.tsx';
 import Waiting from '@pages/Waiting.tsx';
+import Chat from '@pages/ChatPage.tsx';
 import jwt from 'jsonwebtoken';
 import { jwtDecode } from 'jwt-decode';
 
@@ -37,6 +38,7 @@ function App() {
 		  <Route path="/login" element={<Login onLogin={handleLogin} />} />  
 		  <Route path="/register" element={<Register onRegister={handleLogin} />} /> 
 		  <Route path="/waiting" element=<Waiting/> /> 
+          <Route path="/chat" element=<Chat/> /> 
         </Routes>
       </Router>
     </HelmetProvider>
