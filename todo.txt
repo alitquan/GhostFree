@@ -6,4 +6,6 @@ Saving Questions to User Database
 
 Restart Question Gathering Process 
 
+Adding Page to See Previous Chats 
+
 Continuing Chat Process 
