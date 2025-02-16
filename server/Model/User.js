@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema(
 			unique: true, 
 			maxLength: 100,
 		},
+        questions: {
+            type: Map, 
+            of: String
+        },
 	},
 
 	{

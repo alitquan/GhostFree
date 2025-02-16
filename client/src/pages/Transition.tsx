@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import tranStyle from '@styles/Transition.module.css';
 import { useNavigate } from 'react-router-dom';
+import config from '@utils/config.js';
+import axios from 'axios' 
 
 function Transition() {
   const [showQuestion, setShowQuestion] = useState(false);
@@ -18,8 +20,17 @@ function Transition() {
 
   const navigate = useNavigate();
 
-  const goToWaiting = () => {
-		navigate('/waiting'); 
+
+  const goToWaiting = async () => {
+        const token = sessionStorage.getItem("authToken");
+		const URI = config.API_BASE_URL + "/questions";
+        const response = await axios.post(URI, 
+            {_questions: questions},
+            {headers: { Authorization: `Bearer ${token}`}}
+        ); 
+        console.log('goToWaiting -- response: ', response) 
+        console.log()
+    	navigate('/waiting'); 
   };
 
   // Handle showing and hiding questions

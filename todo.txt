@@ -1,0 +1,9 @@
+Saving Questions to User Database 
+[x] use the Middleware to successfully get the token 
+[X] parse the token in the Middleware
+[X] pass from Middleware to Server 
+[X] modify updateQuestions to update the record 
+
+Restart Question Gathering Process 
+
+Continuing Chat Process 
